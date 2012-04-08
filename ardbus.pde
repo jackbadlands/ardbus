@@ -1,5 +1,4 @@
-#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
-#define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
+// License=MIT    Vitaly "_Vi" Shukela    2012
 
 #define DIGITAL_PIN_COUNT 14
 #define MASKED_PINS 2

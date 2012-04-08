@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 # Simple Arduino D-Bus interface. Not for any high-performance things.
+# License=MIT    Vitaly "_Vi" Shukela    2012
 
 
 
