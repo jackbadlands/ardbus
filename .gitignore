@@ -1,0 +1,9 @@
+.sconsign.dblite
+*.elf
+*.hex
+build
+SConscript
+SConstruct
+build
+*.hex
+*.elf
