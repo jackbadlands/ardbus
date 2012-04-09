@@ -32,8 +32,9 @@ sub new {
 dbus_method("DigitalWrite", ["byte", "bool"]);
 dbus_method("PinMode", ["byte", "bool"]);
 dbus_signal("DigitalInputChanged", ["byte", "bool"]);
+dbus_method("DigitalRead", ["byte"], ["bool"]);
 
-sub DigitalWrite($$) {
+sub DigitalWrite($$$) {
     my $self = shift;
     my $pin = shift;
     my $val = shift;
@@ -44,7 +45,7 @@ sub DigitalWrite($$) {
     print "ArDi".$digitalWriteValues."\n";
 }
 
-sub PinMode($$) {
+sub PinMode($$$) {
     my $self = shift;
     my $pin = shift;
     my $val = shift;
@@ -53,6 +54,15 @@ sub PinMode($$) {
     return unless ($pin >= 0) && ($pin < $lpc);
     substr($pinModeValues, $pin, 1) = ($val ? '1' : '0');
     print "ArMo".$pinModeValues."\n";
+}
+
+sub DigitalRead($$) {
+    my $self = shift;
+    my $pin = shift;
+    
+    $pin-=$MASKED_PINS;
+    return undef unless ($pin >= 0) && ($pin < $lpc);
+    return (substr($digitalReadValues, $pin, 1) eq "0")?0:1;
 }
 
 sub digitalInputFromArduino($$) {
