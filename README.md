@@ -29,5 +29,5 @@ Example (13'th pin is orange LED):
        boolean false
 
 
-Not CPU-efficient, analow/PWM is not implemented, CPU hog (constantly reading from Arduino). Feel free to improve (send patches/pull requests) or to ask for improvements.
+Not CPU-efficient, analog_in/PWM is not implemented, CPU hog (constantly reading from Arduino). Feel free to improve (send patches/pull requests) or to ask for improvements.
 
