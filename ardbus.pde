@@ -36,6 +36,13 @@ void loop() {
                     pinMode(i, is[j]-'0');
                 }
             }
+            if(is[2]=='A' && is[3]=='n') {
+                unsigned char pin = (is[4]-'0')*10+(is[5]-'0');
+                int val = analogRead(pin);
+                Serial.print("ArAn");
+                Serial.print(val);
+                Serial.write('\n');
+            }
         }
     }
 

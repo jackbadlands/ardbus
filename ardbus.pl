@@ -33,6 +33,7 @@ dbus_method("DigitalWrite", ["byte", "bool"]);
 dbus_method("PinMode", ["byte", "bool"]);
 dbus_signal("DigitalInputChanged", ["byte", "bool"]);
 dbus_method("DigitalRead", ["byte"], ["bool"]);
+dbus_method("AnalogRead", ["byte"], ["uint16"]);
 
 sub DigitalWrite($$$) {
     my $self = shift;
@@ -83,6 +84,20 @@ sub digitalInputFromArduino($$) {
     }
 }
 
+sub AnalogRead($$) {
+    my $self = shift;
+    my $pin = shift;
+    printf "ArAn02%d\n", $pin;
+    printf "ArAn02%d\n", $pin;
+    my $read="";
+    for(my $i=0; $i<100; ++$i) {
+        my $readie="";
+        sysread main::F, $readie, 40;
+        $read.=$readie;
+        return $1 if $read =~ /ArAn(\d+)\n/;
+    }
+    return 5555;
+}
 
 package main;
 use Net::DBus;

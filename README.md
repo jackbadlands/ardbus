@@ -28,6 +28,9 @@ Example (13'th pin is orange LED):
        byte 2
        boolean false
 
+    $ qdbus org.vi_server.ardbus / org.vi_server.ardbus.AnalogRead 1
+    374
 
-Not CPU-efficient, analog_in/PWM is not implemented, CPU hog (constantly reading from Arduino). Feel free to improve (send patches/pull requests) or to ask for improvements.
+
+Not CPU-efficient, PWM output is not implemented, CPU hog (constantly reading from Arduino). Feel free to improve (send patches/pull requests) or to ask for improvements.
 
